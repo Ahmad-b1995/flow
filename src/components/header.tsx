@@ -8,7 +8,8 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  *{
+  transition: 280ms ease-in-out;
+  * {
     color: ${(props) => props.theme.text};
   }
   h3 {
@@ -16,7 +17,7 @@ const StyledHeader = styled.header`
   }
   label {
     font-size: 1rem;
-    margin-right: .4rem
+    margin-right: 0.4rem;
   }
 `;
 
@@ -36,7 +37,7 @@ function Header({switchTheme}: Props) {
           type="checkbox"
           className="checkbox"
           id="checkbox"
-          style={{transition: "all 200ms"}}
+          style={{outline: "none", cursor: "pointer"}}
           onChange={switchTheme}
         />
       </div>

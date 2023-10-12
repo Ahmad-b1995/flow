@@ -1,12 +1,37 @@
 const items: ItemInterface[] = [
-  {id: "item1", content: "First task"},
-  {id: "item2", content: "Second task"},
-  {id: "item3", content: "Third task"},
-  {id: "item4", content: "Fourth task"},
-  {id: "item5", content: "Fifth task"},
-  {id: "item6", content: "Sixth task"},
-  {id: "item7", content: "Seventh task"},
-  {id: "item8", content: "Eigth task"},
+  {
+    id: "feature1",
+    content: "First feature",
+    type: "feature",
+    priority: "medium",
+  },
+  {
+    id: "meeting2",
+    content: "Second meeting",
+    type: "meeting",
+    priority: "medium",
+  },
+  {id: "bug3", content: "Third bug", type: "bug", priority: "urgent"},
+  {
+    id: "feature4",
+    content: "Fourth feature",
+    type: "feature",
+    priority: "high",
+  },
+  {
+    id: "feature5",
+    content: "Fifth feature",
+    type: "feature",
+    priority: "medium",
+  },
+  {id: "bug6", content: "Sixth bug", type: "bug", priority: "medium"},
+  {
+    id: "meeting7",
+    content: "Seventh meeting",
+    type: "meeting",
+    priority: "urgent",
+  },
+  {id: "feature8", content: "Eigth feature", type: "feature", priority: "high"},
 ];
 
 export const initColumns: {[key: string]: ColumnInterface} = {
@@ -27,10 +52,6 @@ export const initColumns: {[key: string]: ColumnInterface} = {
   },
 };
 
-interface Column {
-  [key: string]: ColumnInterface;
-}
-
 export interface ColumnInterface {
   id: string;
   title: string;
@@ -40,4 +61,9 @@ export interface ColumnInterface {
 export interface ItemInterface {
   id: string;
   content: string;
+  type: TypeInterface;
+  priority: PriorityInterface;
 }
+
+export type TypeInterface = "feature" | "bug" | "meeting";
+export type PriorityInterface = "medium" | "high" | "urgent";

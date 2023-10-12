@@ -17,6 +17,8 @@ const Container = styled.div`
   color: ${(props) => props.theme.text};
   height: calc(100vh - 50px);
   padding-top: 5rem;
+  transition: 280ms ease-in-out
+
   /* color: #131415 */
 `;
 
