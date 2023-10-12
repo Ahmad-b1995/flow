@@ -1,4 +1,3 @@
-import "./App.css";
 import {DragDropContext, DropResult} from "react-beautiful-dnd";
 import {useEffect, useState} from "react";
 import useLocalStorage from "use-local-storage";
@@ -16,9 +15,25 @@ const Container = styled.div`
   justify-content: center;
   background-color: ${(props) => props.theme.background};
   color: ${(props) => props.theme.text};
-  height: calc(100vh - 50px);
+  min-height: calc(100vh);
+  height: 100%;
   padding-top: 5rem;
   transition: 280ms ease-in-out;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const ColumnContainer = styled.div`
+  display: flex;
+  alignitems: center;
+  @media (max-width: 1024px) {
+    width: 100%;
+
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Dialog = styled.div`
@@ -188,13 +203,7 @@ function App() {
         >
           {Object.entries(columns).map(([columnId, column]) => {
             return (
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
-                key={columnId}
-              >
+              <ColumnContainer key={columnId}>
                 <Column
                   columnId={columnId}
                   column={column}
@@ -202,7 +211,7 @@ function App() {
                   editItem={toggleDialog}
                   deleteItem={deleteItem}
                 />
-              </div>
+              </ColumnContainer>
             );
           })}
         </DragDropContext>

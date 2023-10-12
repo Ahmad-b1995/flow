@@ -13,6 +13,16 @@ interface Props {
 
 const Container = styled.div`
   margin: 8px;
+  width: 330px;
+  @media (max-width: 1024px) {
+    width: 250px;
+    fxlex-direction: column;
+    width: calc(100%);
+  }
+  @media (max-width: 768px) {
+    width: calc(100%);
+    fxlex-direction: column;
+  }
 `;
 
 const Head = styled.h3`
@@ -54,8 +64,11 @@ const Label = styled.div`
 
 const ItemList = styled.div`
   padding: 8px;
-  width: 300px;
   min-height: calc(100vh - 196px);
+  @media (max-width: 768px) {
+    min-height: 100%;
+    width: 100%
+  }
 `;
 
 function Column({columnId, column, addItem, editItem, deleteItem}: Props) {

@@ -20,6 +20,10 @@ const StyledHeader = styled.header`
     font-size: 1rem;
     margin-right: 0.4rem;
   }
+  @media (max-width: 768px) {
+    position: fixed;
+    width: 100%
+  }
 `;
 
 interface Props {
