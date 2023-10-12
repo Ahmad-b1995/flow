@@ -8,7 +8,7 @@ const DialogForm = styled.form`
   align-items: flex-start;
   justify-content: space-between;
   padding: 2rem 2rem;
-  gap: 1rem;
+  gap: 1.2rem;
   * {
     transition: 280ms ease-in-out;
   }
@@ -22,8 +22,9 @@ const InputContainer = styled.div`
   color: ${(props) => props.theme.text};
 
   label {
-    width: 100px;
+    width: 110px;
     font-size: 1rem;
+    white-space: nowrap;
   }
   input,
   textarea,
@@ -34,7 +35,8 @@ const InputContainer = styled.div`
     border: none;
     border-radius: 0.5rem;
     font-size: 1rem;
-    padding: 0.5rem;
+    padding: 0.6rem;
+    width: 100%;
   }
   textarea {
     height: 70px;
@@ -50,7 +52,7 @@ const Button = styled.button`
   color: ${(props) => props.theme.text};
   padding: 0.5rem;
   outline: none;
-  border: none;
+  border: 2px solid ${(props) => props.theme.border};
   border-radius: 0.5rem;
   cursor: pointer;
   &:hover {
@@ -90,7 +92,7 @@ function Form({addItem, item, toggleDialog}: Props) {
   return (
     <DialogForm>
       <InputContainer>
-        <label htmlFor="title">unique title*</label>
+        <label htmlFor="title">title*</label>
         <input
           type="text"
           name="title"
@@ -150,7 +152,14 @@ function Form({addItem, item, toggleDialog}: Props) {
       </InputContainer>
 
       <br />
-      <div style={{display: "flex", gap: ".7rem"}}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          width: "100%",
+          gap: ".7rem",
+        }}
+      >
         <Button type="submit" onClick={handleSubmit}>
           {item ? "Edit" : "Add"}
         </Button>

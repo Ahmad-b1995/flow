@@ -9,6 +9,9 @@ export const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
   font-family: Tahoma, Helvetica, sans-serif;
 },
+html, body {
+    height: 100%;
+}
 `;
 
 export const dark = {

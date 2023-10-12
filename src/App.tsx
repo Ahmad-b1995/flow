@@ -15,12 +15,13 @@ const Container = styled.div`
   justify-content: center;
   background-color: ${(props) => props.theme.background};
   color: ${(props) => props.theme.text};
-  min-height: calc(100vh);
   height: 100%;
+  min-height: calc(100vh - 50px);
   padding-top: 5rem;
   transition: 280ms ease-in-out;
   @media (max-width: 768px) {
     flex-direction: column;
+    min-height: 100vh;
   }
 `;
 
@@ -28,10 +29,6 @@ const ColumnContainer = styled.div`
   display: flex;
   alignitems: center;
   @media (max-width: 1024px) {
-    width: 100%;
-
-  }
-  @media (max-width: 768px) {
     width: 100%;
   }
 `;
@@ -54,6 +51,9 @@ const Dialog = styled.div`
     ,
     to {
     }
+  }
+  @media (max-width: 768px) {
+    width: 100vw;
   }
 `;
 
