@@ -10,7 +10,7 @@ const DialogForm = styled.form`
   padding: 2rem 2rem;
   gap: 1.2rem;
   height: 100%;
-  * {
+  *:not(textarea) {
     transition: 280ms ease-in-out;
   }
 `;
@@ -41,6 +41,7 @@ const InputContainer = styled.div`
   }
   textarea {
     height: 70px;
+    resize: vertical;
   }
   ,
   select {
