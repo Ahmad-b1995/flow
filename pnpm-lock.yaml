@@ -26,6 +26,9 @@ dependencies:
   '@types/react':
     specifier: ^18.2.28
     version: 18.2.28
+  '@types/react-beautiful-dnd':
+    specifier: ^13.1.5
+    version: 13.1.5
   '@types/react-dom':
     specifier: ^18.2.13
     version: 18.2.13
@@ -2698,6 +2701,12 @@ packages:
 
   /@types/range-parser@1.2.5:
     resolution: {integrity: sha512-xrO9OoVPqFuYyR/loIHjnbvvyRZREYKLjxV4+dY6v3FQR3stQ9ZxIGkaclF7YhI9hfjpuTbu14hZEy94qKLtOA==}
+    dev: false
+
+  /@types/react-beautiful-dnd@13.1.5:
+    resolution: {integrity: sha512-mzohmMtV48b0bXF2dP8188LzUv9HAGHKucOORYsd5Sqq830pJ4gseFyDDAH0TR4TeD1ceG9DxTQ0FOFbtCSy4Q==}
+    dependencies:
+      '@types/react': 18.2.28
     dev: false
 
   /@types/react-dom@18.2.13:
