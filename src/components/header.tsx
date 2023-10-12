@@ -34,7 +34,7 @@ function Header({switchTheme}: Props) {
   return (
     <StyledHeader>
       <h3>Kanban</h3>
-      <div>
+      <div style={{display: 'flex', alignItems: 'center'}}>
         <label htmlFor="checkbox" className="label">
           light/dark
         </label>
