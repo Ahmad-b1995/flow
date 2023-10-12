@@ -36,7 +36,7 @@ function Header({switchTheme}: Props) {
       <h3>Kanban</h3>
       <div style={{display: 'flex', alignItems: 'center'}}>
         <label htmlFor="checkbox" className="label">
-          light/dark
+          light / dark
         </label>
         <input
           type="checkbox"
