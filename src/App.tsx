@@ -34,12 +34,13 @@ const ColumnContainer = styled.div`
 `;
 
 const Dialog = styled.div`
-  position: absolute;
+  position: fixed;
   background-color: ${(props) => props.theme.card.primary};
   width: 400px;
   height: calc(100% - 50px);
   left: 0;
   bottom: 0;
+  top: 50px;
   transition: 280ms ease-in-out;
   &.fade-in {
     animation: slide 0.5s;
