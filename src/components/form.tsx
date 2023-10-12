@@ -61,6 +61,7 @@ interface Props {
 function Form({addItem, item, toggleDialog}: Props) {
   const [inputValues, setInputValues] = useState<ItemInterface>({
     id: "",
+    title: "",
     content: "",
     type: "feature",
     priority: "medium",
@@ -74,7 +75,7 @@ function Form({addItem, item, toggleDialog}: Props) {
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (inputValues.id === "") return alert("please fill title");
+    if (inputValues.title === "") return alert("please fill title");
     if (inputValues.content === "") return alert("please fill content");
     addItem(inputValues);
   };
@@ -85,11 +86,11 @@ function Form({addItem, item, toggleDialog}: Props) {
         <label htmlFor="title">unique title*</label>
         <input
           type="text"
-          name="id"
+          name="title"
           id="title"
-          value={inputValues.id}
+          value={inputValues.title}
           onChange={({target}) => {
-            setInputValues({...inputValues, id: target.value});
+            setInputValues({...inputValues, title: target.value});
           }}
         />
       </InputContainer>
@@ -144,7 +145,7 @@ function Form({addItem, item, toggleDialog}: Props) {
       <br />
       <div style={{display: "flex", gap: ".7rem"}}>
         <Button type="submit" onClick={handleSubmit}>
-          Add
+          {item ? "Edit" : "Add"}
         </Button>
         <Button
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => {

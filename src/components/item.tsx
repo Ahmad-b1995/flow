@@ -8,13 +8,15 @@ interface Props {
   editItem: (itemId: string) => void;
 }
 
-const Container = styled.div<{isDragging: boolean}>`
+const Container = styled.div<{isdragging: string}>`
   border: 2px solid ${(props) => props.theme.border};
   padding: 12px;
   border-radius: 0.5rem;
   margin-bottom: 8px;
   background-color: ${(props) =>
-    props.isDragging ? props.theme.card.selected : props.theme.card.primary};
+    props.isdragging === "true"
+      ? props.theme.card.selected
+      : props.theme.card.primary};
   color: "black";
   user-select: "none";
   min-height: 70px;
@@ -89,9 +91,9 @@ function Item({item, index, editItem}: Props) {
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
-            isDragging={snapshot.isDragging}
+            isdragging={snapshot.isDragging.toString()}
           >
-            {item.id}
+            {item.title}
             <Footer>
               <div>
                 <Priority priority={item.priority}>&uarr;</Priority>
