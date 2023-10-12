@@ -9,6 +9,9 @@ const DialogForm = styled.form`
   justify-content: space-between;
   padding: 2rem 2rem;
   gap: 1rem;
+  * {
+    transition: 280ms ease-in-out;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -22,19 +25,23 @@ const InputContainer = styled.div`
     width: 100px;
     font-size: 1rem;
   }
-  input[type="text"],
-  textarea {
+  input,
+  textarea,
+  select {
     background-color: ${(props) => props.theme.background};
     color: ${(props) => props.theme.text};
     outline: none;
     border: none;
-    height: 25px;
+    border-radius: 0.5rem;
     font-size: 1rem;
     padding: 0.5rem;
   }
-
   textarea {
     height: 70px;
+  }
+  ,
+  select {
+    font-size: 0.9rem;
   }
 `;
 

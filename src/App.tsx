@@ -28,15 +28,16 @@ const Dialog = styled.div`
   height: calc(100% - 50px);
   left: 0;
   bottom: 0;
-  transition: 1s linear;
+  transition: 280ms ease-in-out;
   &.fade-in {
-    animation: slide .5s;
+    animation: slide 0.5s;
   }
   @keyframes slide {
     from {
       transform: translateX(-400px);
-    },
-    to{
+    }
+    ,
+    to {
     }
   }
 `;
@@ -139,6 +140,23 @@ function App() {
     toggleDialog("");
   };
 
+  const deleteItem = (columnId: string, itemId: string) => {
+    const response = window.confirm("Are you sure to delete Item?");
+    if (response) {
+      const index = columns[columnId].items.findIndex(
+        (item) => item.id === itemId
+      );
+      let tempColumns = {...columns};
+      if (index !== -1) {
+        tempColumns[columnId].items.splice(index, 1);
+      }
+      setColumns({
+        ...tempColumns,
+      });
+    } else {
+    }
+  };
+
   const toggleDialog = (columnId?: string, itemId?: string) => {
     setdialog({
       ...dialog,
@@ -182,6 +200,7 @@ function App() {
                   column={column}
                   addItem={toggleDialog}
                   editItem={toggleDialog}
+                  deleteItem={deleteItem}
                 />
               </div>
             );

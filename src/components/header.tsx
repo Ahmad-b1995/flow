@@ -11,6 +11,7 @@ const StyledHeader = styled.header`
   transition: 280ms ease-in-out;
   * {
     color: ${(props) => props.theme.text};
+    transition: 280ms ease-in-out;
   }
   h3 {
     font-size: 1.25rem;

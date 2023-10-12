@@ -8,6 +8,7 @@ interface Props {
   column: ColumnInterface;
   addItem: (columnId: string) => void;
   editItem: (columnId: string, itemId: string) => void;
+  deleteItem: (columnId: string, itemId: string) => void;
 }
 
 const Container = styled.div`
@@ -57,7 +58,7 @@ const ItemList = styled.div`
   min-height: calc(100vh - 196px);
 `;
 
-function Column({columnId, column, addItem, editItem}: Props) {
+function Column({columnId, column, addItem, editItem, deleteItem}: Props) {
   return (
     <Container>
       <Head>
@@ -81,6 +82,7 @@ function Column({columnId, column, addItem, editItem}: Props) {
                 return (
                   <Item
                     editItem={(itemId) => editItem(columnId, itemId)}
+                    deleteItem={(itemId) => deleteItem(columnId, itemId)}
                     key={item.id}
                     item={item}
                     index={index}

@@ -6,6 +6,7 @@ interface Props {
   item: ItemInterface;
   index: number;
   editItem: (itemId: string) => void;
+  deleteItem: (itemId: string) => void;
 }
 
 const Container = styled.div<{isdragging: string}>`
@@ -30,6 +31,10 @@ const Container = styled.div<{isdragging: string}>`
   cursor: grab;
   &:hover .editIcon {
     display: block;
+  }
+  ,
+  * {
+    transition: 280ms ease-in-out;
   }
 `;
 
@@ -65,24 +70,27 @@ const Footer = styled.div`
   width: 100%;
 `;
 
-const Edit = styled.button`
-  font-size: 1.1rem;
+const Icon = styled.button<{background?: string; color?: string}>`
+  font-size: 1rem;
   font-weight: 1000;
-  color: 2px solid ${(props) => props.theme.text};
+  color: ${(props) => props.theme.text};
   cursor: pointer;
   display: none;
   outline: none;
   border: none;
   opacity: 0.9;
-  padding: 0rem 0.15rem;
+  padding: 0.1rem 0.2rem;
   border-radius: 0.2rem;
+  background-color: ${(props) => props.theme.background};
   &:hover {
-    background-color: ${(props) => props.theme.card.selected};
-    box-shadow: 0 0 2px 2px ${(props) => props.theme.border};
+    background-color: ${(props) =>
+      props.background ? props.background : props.theme.card.selected};
+    color: ${(props) => (props.color ? props.color : props.theme.text)};
+    box-shadow: 0 0 1px 1px ${(props) => props.theme.border};
   }
 `;
 
-function Item({item, index, editItem}: Props) {
+function Item({item, index, editItem,deleteItem}: Props) {
   return (
     <Draggable key={item.id} draggableId={item.id} index={index}>
       {(provided, snapshot) => {
@@ -99,9 +107,19 @@ function Item({item, index, editItem}: Props) {
                 <Priority priority={item.priority}>&uarr;</Priority>
                 <Type type={item.type}>{item.type}</Type>
               </div>
-              <Edit className="editIcon" onClick={() => editItem(item.id)}>
-                &#9998;
-              </Edit>
+              <div style={{display: "flex", gap: ".5rem"}}>
+                <Icon className="editIcon" onClick={() => editItem(item.id)}>
+                  &#9998;
+                </Icon>
+                <Icon
+                  className="editIcon"
+                  color={"#f2292f"}
+                  background={"#ffb9bc"}
+                  onClick={() => deleteItem(item.id)}
+                >
+                  &#9888;
+                </Icon>
+              </div>
             </Footer>
           </Container>
         );
