@@ -14,7 +14,7 @@ interface Props {
 const Container = styled.div`
   margin: 8px;
   width: 330px;
-  min-height: 240px;
+  min-height: 200px;
   @media (max-width: 1024px) {
     width: 250px;
     fxlex-direction: column;
