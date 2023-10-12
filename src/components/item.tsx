@@ -5,6 +5,7 @@ import {ItemInterface, PriorityInterface, TypeInterface} from "../data";
 interface Props {
   item: ItemInterface;
   index: number;
+  editItem: (itemId: string) => void;
 }
 
 const Container = styled.div<{isDragging: boolean}>`
@@ -24,6 +25,10 @@ const Container = styled.div<{isDragging: boolean}>`
   align-items: flex-start;
   gap: 1rem;
   justify-content: space-between;
+  cursor: grab;
+  &:hover .editIcon {
+    display: block;
+  }
 `;
 
 const Type = styled.span<{type: TypeInterface}>`
@@ -51,7 +56,31 @@ const Priority = styled.span<{priority: PriorityInterface}>`
   margin-right: 0.4rem;
 `;
 
-function Item({item, index}: Props) {
+const Footer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const Edit = styled.button`
+  font-size: 1.1rem;
+  font-weight: 1000;
+  color: 2px solid ${(props) => props.theme.text};
+  cursor: pointer;
+  display: none;
+  outline: none;
+  border: none;
+  opacity: 0.9;
+  padding: 0rem 0.15rem;
+  border-radius: 0.2rem;
+  &:hover {
+    background-color: ${(props) => props.theme.card.selected};
+    box-shadow: 0 0 2px 2px ${(props) => props.theme.border};
+  }
+`;
+
+function Item({item, index, editItem}: Props) {
   return (
     <Draggable key={item.id} draggableId={item.id} index={index}>
       {(provided, snapshot) => {
@@ -62,11 +91,16 @@ function Item({item, index}: Props) {
             {...provided.dragHandleProps}
             isDragging={snapshot.isDragging}
           >
-            {item.content}
-            <div>
-              <Priority priority={item.priority}>&uarr;</Priority>
-              <Type type={item.type}>{item.type}</Type>
-            </div>
+            {item.id}
+            <Footer>
+              <div>
+                <Priority priority={item.priority}>&uarr;</Priority>
+                <Type type={item.type}>{item.type}</Type>
+              </div>
+              <Edit className="editIcon" onClick={() => editItem(item.id)}>
+                &#9998;
+              </Edit>
+            </Footer>
           </Container>
         );
       }}

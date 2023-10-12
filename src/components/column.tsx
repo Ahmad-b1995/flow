@@ -6,6 +6,8 @@ import Item from "./item";
 interface Props {
   columnId: string;
   column: ColumnInterface;
+  addItem: (columnId: string) => void;
+  editItem: (columnId: string, itemId: string) => void;
 }
 
 const Container = styled.div`
@@ -31,6 +33,10 @@ const Add = styled.button`
   background-color: ${(props) => props.theme.label};
   border-radius: 0.3rem;
   cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.theme.card.selected};
+    box-shadow: 0 0 2px 2px ${(props) => props.theme.border};
+  }
 `;
 
 const Label = styled.div`
@@ -51,7 +57,7 @@ const ItemList = styled.div`
   min-height: calc(100vh - 196px);
 `;
 
-function Column({columnId, column}: Props) {
+function Column({columnId, column, addItem, editItem}: Props) {
   return (
     <Container>
       <Head>
@@ -59,7 +65,7 @@ function Column({columnId, column}: Props) {
           <h3>{column.title}</h3>
           <Label>{column.items.length}</Label>
         </div>
-        <Add>+</Add>
+        <Add onClick={() => addItem(columnId)}>+</Add>
       </Head>
       <StrictModeDroppable droppableId={columnId} key={columnId}>
         {(provided, snapshot) => {
@@ -72,7 +78,14 @@ function Column({columnId, column}: Props) {
               })}
             >
               {column.items.map((item, index) => {
-                return <Item key={item.id} item={item} index={index} />;
+                return (
+                  <Item
+                    editItem={(itemId) => editItem(columnId, itemId)}
+                    key={item.id}
+                    item={item}
+                    index={index}
+                  />
+                );
               })}
               {provided.placeholder}
             </ItemList>
