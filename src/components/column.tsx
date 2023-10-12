@@ -65,9 +65,7 @@ const Label = styled.div`
 
 const ItemList = styled.div`
   padding: 8px;
-  /* min-height: calc(100vh - 196px); */
   @media (max-width: 768px) {
-    /* min-height: 100%; */
     width: 100%
   }
 `;

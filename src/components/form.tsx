@@ -6,9 +6,10 @@ const DialogForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 2rem 2rem;
   gap: 1.2rem;
+  height: 100%;
   * {
     transition: 280ms ease-in-out;
   }
