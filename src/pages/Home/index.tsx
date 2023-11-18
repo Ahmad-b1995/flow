@@ -1,4 +1,3 @@
-import React from "react";
 import {Link} from "react-router-dom";
 import MainHero from "../../components/homepage/MainHero";
 import Header from "../../components/homepage/Header";
@@ -13,19 +12,11 @@ import About from "../../components/homepage/About";
 export default function Home() {
   return (
     <>
-      <Link to="/board">Board</Link>
       <div className={`bg-background grid gap-y-16 overflow-hidden`}>
-        <div className={`relative bg-background`}>
-          <div className="max-w-7xl mx-auto">
-            <div
-              className={`relative z-10 pb-8 bg-background sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32`}
-            >
-              <Header />
-              <MainHero />
-            </div>
-          </div>
-          <MainHeroImage />
-        </div>
+        <section className="max-w-7xl mx-auto">
+          <Header />
+          <MainHero />
+        </section>
         <Canvas />
         <LazyShow>
           <>
@@ -47,7 +38,7 @@ export default function Home() {
             <Canvas />
             <About />
           </>
-        </LazyShow>
+        </LazyShow> 
       </div>
     </>
   );
