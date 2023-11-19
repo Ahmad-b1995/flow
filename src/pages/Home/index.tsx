@@ -13,12 +13,12 @@ export default function Home() {
   return (
     <>
       <div className="bg-background grid gap-y-16 overflow-hidden">
-          <Header />
+        <Header />
         <section className="max-w-7xl mx-auto flex  items-center justify-center">
           <MainHero />
         </section>
-        <Canvas />
-        <LazyShow>
+        {/* <Canvas /> */}
+        {/* <LazyShow>
           <>
             <Product />
             <Canvas />
@@ -38,7 +38,7 @@ export default function Home() {
             <Canvas />
             <About />
           </>
-        </LazyShow> 
+        </LazyShow> */}
       </div>
     </>
   );
