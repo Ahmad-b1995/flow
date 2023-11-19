@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "@atlaskit/css-reset";
 import App from "./App";
-import './assets/main.css'
+import './styles/Global.scss'
 
 
 const root = ReactDOM.createRoot(

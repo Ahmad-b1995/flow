@@ -12,9 +12,9 @@ import About from "../../components/homepage/About";
 export default function Home() {
   return (
     <>
-      <div className={`bg-background grid gap-y-16 overflow-hidden`}>
-        <section className="max-w-7xl mx-auto">
+      <div className="bg-background grid gap-y-16 overflow-hidden">
           <Header />
+        <section className="max-w-7xl mx-auto flex  items-center justify-center">
           <MainHero />
         </section>
         <Canvas />
