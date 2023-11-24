@@ -1,7 +1,6 @@
 import {Link} from "react-router-dom";
 import MainHero from "../../components/homepage/MainHero";
 import Header from "../../components/homepage/Header";
-import MainHeroImage from "../../components/homepage/MainHeroImage";
 import Canvas from "../../components/homepage/Canvas";
 import LazyShow from "../../components/homepage/LazyShow";
 import Product from "../../components/homepage/Product";
@@ -11,35 +10,35 @@ import About from "../../components/homepage/About";
 
 export default function Home() {
   return (
-    <>
-      <div className="bg-background grid gap-y-16 overflow-hidden">
-        <Header />
-        <section className="max-w-7xl mx-auto flex  items-center justify-center">
+    <div>
+      <Header />
+      <div className="w-full min-h-screen overflow-hidden flex flex-col items-center justify-start mt-28">
+        <section className="max-w-7xl">
           <MainHero />
         </section>
-        {/* <Canvas /> */}
-        {/* <LazyShow>
-          <>
-            <Product />
-            <Canvas />
-          </>
-        </LazyShow>
-        <LazyShow>
-          <>
-            <Features />
-            <Canvas />
-          </>
-        </LazyShow>
-        <LazyShow>
-          <Pricing />
-        </LazyShow>
-        <LazyShow>
-          <>
-            <Canvas />
-            <About />
-          </>
-        </LazyShow> */}
       </div>
-    </>
+      {/* //  <Canvas /> 
+//  <LazyShow>
+//           <>
+//           <Product />
+//           <Canvas />
+//           </>
+//           </LazyShow>
+//           <LazyShow>
+//           <>
+//           <Features />
+//           <Canvas />
+//           </>
+//           </LazyShow>
+//           <LazyShow>
+//           <Pricing />
+//           </LazyShow>
+//           <LazyShow>
+//           <>
+//           <Canvas />
+//           <About />
+//           </>
+//         </LazyShow>  */}
+    </div>
   );
 }
