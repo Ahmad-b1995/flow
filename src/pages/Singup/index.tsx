@@ -1,24 +1,37 @@
 import {FormEvent, useState} from "react";
 import {Link} from "react-router-dom";
 import Logo from "../../assets/images/logo";
+import {object, string, ValidationError} from "yup";
 
 interface Props {
   // onSubmit: (email: string, fullName: string, password: string) => void;
 }
 
 export default function RegisterForm({}: Props) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const schema = object().shape({
+    username: string().required(),
+    email: string().required().email(),
+    password: string().required().min(8),
+  });
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!name || !email || !password) {
-      setError("All fields are necessary.");
-      return;
-    }
-    // onSubmit(email, name, password);
+    schema
+      .validate(formData)
+      .then((data) => {
+        setError("");
+        console.log(data);
+      })
+      .catch((e: ValidationError) => {
+        setError(e.message);
+      });
   };
 
   return (
@@ -46,10 +59,12 @@ export default function RegisterForm({}: Props) {
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 "
                 >
-                  Full name
+                  Username
                 </label>
                 <input
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) =>
+                    setFormData({...formData, username: e.target.value})
+                  }
                   autoComplete="name"
                   type="text"
                   name="name"
@@ -68,7 +83,9 @@ export default function RegisterForm({}: Props) {
                 </label>
                 <input
                   autoComplete="email"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) =>
+                    setFormData({...formData, email: e.target.value})
+                  }
                   type="email"
                   name="email"
                   id="email"
@@ -86,9 +103,9 @@ export default function RegisterForm({}: Props) {
                 </label>
                 <input
                   autoComplete="new-password"
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
+                  onChange={(e) =>
+                    setFormData({...formData, password: e.target.value})
+                  }
                   type="password"
                   name="password"
                   id="password"
@@ -101,11 +118,14 @@ export default function RegisterForm({}: Props) {
                 <button
                   type="submit"
                   className="w-full  disabled:text-gray-400 disabled:bg-gray-300 text-white mt-9 bg-main hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center "
-                  disabled={!password || !email || !name}
+                  disabled={
+                    !formData.username || !formData.email || !formData.password
+                  }
                 >
                   Sign up
                 </button>
                 <div className="flex flex-col items-center justify-center gap-2">
+                  <p className="text-red-500">{error}</p>
                   <p className="text-sm ">
                     Have an account?{" "}
                     <Link
@@ -114,9 +134,6 @@ export default function RegisterForm({}: Props) {
                     >
                       Sign in
                     </Link>
-                  </p>
-                  <p className="text-xs">
-                    By proceeding, you are agreeing to the Terms & Conditions
                   </p>
                 </div>
               </div>
