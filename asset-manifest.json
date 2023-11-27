@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/flow/static/css/main.2181e537.css",
+    "main.js": "/flow/static/js/main.f18415b0.js",
+    "static/media/kanban.png": "/flow/static/media/kanban.fba5760c6d52cb0cb552.png",
+    "index.html": "/flow/index.html",
+    "main.2181e537.css.map": "/flow/static/css/main.2181e537.css.map",
+    "main.f18415b0.js.map": "/flow/static/js/main.f18415b0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2181e537.css",
+    "static/js/main.f18415b0.js"
+  ]
+}
