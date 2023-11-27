@@ -33,7 +33,7 @@ interface Props {
 function Header({switchTheme}: Props) {
   return (
     <StyledHeader>
-      <h3>Kanban</h3>
+      <h3>flow</h3>
       <div style={{display: 'flex', alignItems: 'center'}}>
         <label htmlFor="checkbox" className="label">
           light / dark
