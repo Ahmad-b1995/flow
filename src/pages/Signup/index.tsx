@@ -3,11 +3,11 @@ import {Link} from "react-router-dom";
 import Logo from "../../assets/images/logo";
 import {object, string, ValidationError} from "yup";
 
-interface Props {
+// interface Props {
   // onSubmit: (email: string, fullName: string, password: string) => void;
-}
+// }
 
-export default function RegisterForm({}: Props) {
+export default function RegisterForm() {
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     username: "",

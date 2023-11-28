@@ -1,8 +1,8 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Board from "../pages/Board";
 import Home from "../pages/Home";
-import Singin from "../pages/Singin";
-import Singup from "../pages/Singup";
+import Singin from "../pages/Signin";
+import Singup from "../pages/Signup";
 
 export default function Router() {
   return (
