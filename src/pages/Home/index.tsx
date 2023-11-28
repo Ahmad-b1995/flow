@@ -1,12 +1,12 @@
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import MainHero from "../../components/homepage/MainHero";
 import Header from "../../components/homepage/Header";
-import Canvas from "../../components/homepage/Canvas";
-import LazyShow from "../../components/homepage/LazyShow";
-import Product from "../../components/homepage/Product";
-import Features from "../../components/homepage/Features";
-import Pricing from "../../components/homepage/Pricing";
-import About from "../../components/homepage/About";
+// import Canvas from "../../components/homepage/Canvas";
+// import LazyShow from "../../components/homepage/LazyShow";
+// import Product from "../../components/homepage/Product";
+// import Features from "../../components/homepage/Features";
+// import Pricing from "../../components/homepage/Pricing";
+// import About from "../../components/homepage/About";
 
 export default function Home() {
   return (
