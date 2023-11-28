@@ -6,9 +6,9 @@ import Singup from "../pages/Singup";
 
 export default function Router() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route path="/">
+        <Route path="/flow">
           <Route index element={<Home />} />
           <Route path="board" element={<Board />} />
           <Route path="signup" element={<Singup />} />
