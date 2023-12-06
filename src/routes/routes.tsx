@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import Board from "../pages/Board";
 import Home from "../pages/Home";
 import Singin from "../pages/Signin";
@@ -6,7 +6,7 @@ import Singup from "../pages/Signup";
 
 export default function Router() {
   return (
-<Routes>
+    <Routes>
       <Route path="/flow">
         <Route index element={<Home />} />
         <Route path="board" element={<Board />} />
