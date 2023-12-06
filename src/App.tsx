@@ -4,8 +4,8 @@ import "./styles/Global";
 
 export default function App() {
   return (
-    <>
+    <main>
       <Router />
-    </>
+    </main>
   );
 }

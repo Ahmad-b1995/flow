@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="w-full min-h-screen overflow-hidden flex flex-col items-center justify-start mt-28">
+      <div className="w-full h-[calc(100vh-5rem)] overflow-hidden flex flex-col items-center justify-center">
         <section className="max-w-7xl">
           <MainHero />
         </section>
