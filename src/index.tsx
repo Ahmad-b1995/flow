@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "@atlaskit/css-reset";
 import App from "./App";
 import './styles/Global.scss'
+import { BrowserRouter } from "react-router-dom";
 
 
 const root = ReactDOM.createRoot(
@@ -10,6 +11,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
     <App />
+    </BrowserRouter>
   </React.StrictMode>
 );

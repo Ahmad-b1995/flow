@@ -6,15 +6,13 @@ import Singup from "../pages/Signup";
 
 export default function Router() {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <Routes>
-        <Route path="/">
-          <Route index element={<Home />} />
-          <Route path="board" element={<Board />} />
-          <Route path="signup" element={<Singup />} />
-          <Route path="signin" element={<Singin />} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="board" element={<Board />} />
+        <Route path="signup" element={<Singup />} />
+        <Route path="signin" element={<Singin />} />
       </Routes>
-    </BrowserRouter>
+    // </BrowserRouter>
   );
 }
