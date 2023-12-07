@@ -1,5 +1,5 @@
 import {FormEvent, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Logo from "../../assets/images/logo";
 import {object, ref, string, ValidationError} from "yup";
 import {signup} from "../../services/http/user.http.service";
@@ -11,6 +11,7 @@ export default function RegisterForm() {
     password: "",
     passwordConfirm: "",
   });
+  const navigate = useNavigate();
 
   const schema = object().shape({
     email: string().required().email(),
@@ -20,20 +21,18 @@ export default function RegisterForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    schema
-      .validate(formData)
-      .then((data) => {
-        setError("");
-        // console.log(data);
-        signup({
-          email: data.email,
-          password: data.password,
-          passwordConfirm: data.passwordConfirm!,
-        });
-      })
-      .catch((e: ValidationError) => {
-        setError(e.message);
+    try {
+      const validation = await schema.validate(formData);
+      setError("");
+      await signup({
+        email: validation.email,
+        password: validation.password,
+        passwordConfirm: validation.passwordConfirm!,
       });
+      navigate("/projects");
+    } catch (err: any) {
+      setError(err.message);
+    }
   };
 
   return (
