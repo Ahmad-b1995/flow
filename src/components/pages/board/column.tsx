@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ColumnInterface} from "./../data";
+import {ColumnInterface} from "../../../data";
 import {StrictModeDroppable} from "./droppable";
 import Item from "./item";
 

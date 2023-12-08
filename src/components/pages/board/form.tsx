@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import {ItemInterface, PriorityInterface, TypeInterface} from "../data";
+import {ItemInterface, PriorityInterface, TypeInterface} from "../../../data";
 
 const DialogForm = styled.form`
   display: flex;

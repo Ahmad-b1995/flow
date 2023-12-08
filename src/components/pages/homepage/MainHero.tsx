@@ -1,11 +1,11 @@
 import {Link} from "react-router-dom";
-import config from "../../config/index.json";
+import config from "../../../config/index.json";
 
 const MainHero = () => {
   const {mainHero} = config;
 
   return (
-    <main className="flex items-center justify-between gap-24 w-full">
+    <main className="flex items-center justify-between w-full">
       <div className="sm:text-center lg:text-left ">
         <h1 className="text-2xl tracking-tight font-extrabold max-w-lg text-gray-900 sm:text-5xl md:text-4xl">
           project management made easy & open source
@@ -26,8 +26,8 @@ const MainHero = () => {
         </div>
       </div>
       <img
-        className=" object-cover flex-1"
-        src={require("../../assets/images/kanban.png")}
+        className=" object-cover w-96"
+        src={require("../../../assets/images/kanban.png")}
         alt="happy team"
       />
     </main>

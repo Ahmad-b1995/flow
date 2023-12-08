@@ -1,6 +1,6 @@
 import {Draggable} from "react-beautiful-dnd";
 import {styled} from "styled-components";
-import {ItemInterface, PriorityInterface, TypeInterface} from "../data";
+import {ItemInterface, PriorityInterface, TypeInterface} from "../../../data";
 
 interface Props {
   item: ItemInterface;

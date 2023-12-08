@@ -5,7 +5,7 @@ import {object, ref, string, ValidationError} from "yup";
 import {signup} from "../../services/http/user.http.service";
 
 export default function RegisterForm() {
-  const [error, setError] = useState("");
+  const [error, setError] = useState([]);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -23,7 +23,7 @@ export default function RegisterForm() {
     e.preventDefault();
     try {
       const validation = await schema.validate(formData);
-      setError("");
+      setError([]);
       await signup({
         email: validation.email,
         password: validation.password,
@@ -31,7 +31,7 @@ export default function RegisterForm() {
       });
       navigate("/projects");
     } catch (err: any) {
-      setError(err.message);
+      setError(err.response?.data.message || [err.message]);
     }
   };
 
@@ -44,13 +44,13 @@ export default function RegisterForm() {
         >
           <Logo />
         </Link>
-        <div className="w-full bg-gray-100 rounded-sm border-gray-200 border-1 md:mt-0 sm:max-w-lg xl:p-0 ">
+        <div className="w-full bg-gray-100 rounded-sm border-gray-200 border-1 md:mt-0 sm:max-w-lg xl:p-0 dark:bg-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <div className="flex flex-col items-center justify-center gap-3 ">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-gray-200 ">
                 Sign up
               </h1>
-              <h2 className="text-l  leading-tight tracking-tight text-gray-900  ">
+              <h2 className="text-l  leading-tight tracking-tight text-gray-900 dark:text-gray-200">
                 Create your account and start learning
               </h2>
             </div>
@@ -58,7 +58,7 @@ export default function RegisterForm() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 "
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200"
                 >
                   Email
                 </label>
@@ -78,7 +78,7 @@ export default function RegisterForm() {
               <div>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200"
                 >
                   Password
                 </label>
@@ -97,7 +97,7 @@ export default function RegisterForm() {
               </div>
               <div>
                 <label
-                  htmlFor="password"
+                  htmlFor="confirmPassword"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Confirm password
@@ -108,8 +108,8 @@ export default function RegisterForm() {
                     setFormData({...formData, passwordConfirm: e.target.value})
                   }
                   type="password"
-                  name="password"
-                  id="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
                   placeholder="••••••••"
                   className="bg-white border rounded-sm border-gray-200 text-gray-900 sm:text-sm  focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   required
@@ -124,8 +124,10 @@ export default function RegisterForm() {
                   Sign up
                 </button>
                 <div className="flex flex-col items-center justify-center gap-2">
-                  <p className="text-red-500">{error}</p>
-                  <p className="text-sm ">
+                  {error.map((err) => (
+                    <p className="text-red-500">{error}</p>
+                  ))}
+                  <p className="text-sm dark:text-gray-200 ">
                     Have an account?{" "}
                     <Link
                       to={"/signin"}

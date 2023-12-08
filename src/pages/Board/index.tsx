@@ -4,10 +4,10 @@ import useLocalStorage from "use-local-storage";
 import {ThemeProvider} from "styled-components";
 import {ColumnInterface, initColumns, ItemInterface} from "../../data";
 import styled from "styled-components";
-import Header from "../../components/header";
-import Column from "../../components/column";
+import Header from "../../components/pages/board/header";
+import Column from "../../components/pages/board/column";
 import {dark, GlobalStyles, light} from "../../styles/Global";
-import Form from "../../components/form";
+import Form from "../../components/pages/board/form";
 
 const Container = styled.div`
   display: flex;

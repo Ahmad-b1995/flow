@@ -1,4 +1,4 @@
-import config from '../../config/index.json'
+import config from '../../../config/index.json'
 
 const About = () => {
   const { company, about } = config;
