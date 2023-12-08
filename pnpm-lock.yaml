@@ -50,6 +50,9 @@ dependencies:
   framer-motion:
     specifier: ^10.16.4
     version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+  local-storage:
+    specifier: ^2.0.0
+    version: 2.0.0
   outline:
     specifier: link:@heroicons/react/outline
     version: link:@heroicons/react/outline
@@ -7386,6 +7389,10 @@ packages:
   /loader-utils@3.2.1:
     resolution: {integrity: sha512-ZvFw1KWS3GVyYBYb7qkmRM/WwL2TQQBxgCK62rlvm4WpVQ23Nb4tYjApUlfjrEGvOs7KHEsmyUn75OHZrJMWPw==}
     engines: {node: '>= 12.13.0'}
+    dev: false
+
+  /local-storage@2.0.0:
+    resolution: {integrity: sha512-/0sRoeijw7yr/igbVVygDuq6dlYCmtsuTmmpnweVlVtl/s10pf5BCq8LWBxW/AMyFJ3MhMUuggMZiYlx6qr9tw==}
     dev: false
 
   /locate-path@3.0.0:

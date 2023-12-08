@@ -3,8 +3,9 @@ import {Link, useNavigate} from "react-router-dom";
 import Logo from "../../assets/images/logo";
 import {object, ref, string, ValidationError} from "yup";
 import {signup} from "../../services/http/user.http.service";
+import ls from "local-storage";
 
-export default function RegisterForm() {
+export default function SignUp() {
   const [error, setError] = useState([]);
   const [formData, setFormData] = useState({
     email: "",
@@ -24,13 +25,14 @@ export default function RegisterForm() {
     try {
       const validation = await schema.validate(formData);
       setError([]);
-      await signup({
+      const req = await signup({
         email: validation.email,
         password: validation.password,
         passwordConfirm: validation.passwordConfirm!,
       });
-      navigate("/projects");
-    } catch (err: any) {
+      ls("user", req.data);
+      navigate("/dashboard/projects");
+    } catch (err: ValidationError | any) {
       setError(err.response?.data.message || [err.message]);
     }
   };
@@ -130,7 +132,7 @@ export default function RegisterForm() {
                   <p className="text-sm dark:text-gray-200 ">
                     Have an account?{" "}
                     <Link
-                      to={"/signin"}
+                      to="/signin"
                       className=" text-main font-semibold text-primary-600 hover:underline"
                     >
                       Sign in
