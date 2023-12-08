@@ -98,7 +98,7 @@ export default function SignIn() {
                   className="w-full disabled:text-gray-400 disabled:bg-gray-300 text-white mt-9 bg-main hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center "
                   disabled={!formData.email || !formData.password}
                 >
-                  Sign up
+                  Sign in
                 </button>
                 <div className="flex flex-col items-center justify-center gap-2">
                   {error.map((err) => (
