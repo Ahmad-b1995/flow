@@ -1,13 +1,20 @@
 import {Link} from "react-router-dom";
 import config from "../../../config/index.json";
+import {useGlobalState} from "../../../state/GlobalState";
 
 const MainHero = () => {
   const {mainHero} = config;
+  const [globalState, updateGlobalState] = useGlobalState();
 
   return (
     <main className="flex items-center justify-between w-full">
       <div className="sm:text-center lg:text-left ">
-        <h1 className="text-2xl tracking-tight font-extrabold max-w-lg text-gray-900 sm:text-5xl md:text-4xl">
+        <h1
+          className={`
+        text-2xl tracking-tight font-extrabold max-w-lg  sm:text-5xl md:text-4xl
+        ${globalState.isDark ? "text-gray-300" : "text-gray-900"}
+        `}
+        >
           project management made easy & open source
         </h1>
         <p className=" leading-8 max-w-xl text-gray-500 mt-9 text-xl lg:mx-0">

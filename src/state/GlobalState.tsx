@@ -1,5 +1,5 @@
 import React, {useState, createContext, useContext} from "react";
-
+import ls, {get} from "local-storage";
 interface Props {
   children: React.ReactNode;
 }
@@ -19,14 +19,16 @@ const GlobalContext = createContext<
   [initialState: globalType, updateGlobalState: any]
 >([initialState, null]);
 
-
 // custom component to provide the state to your app
 export const GlobalState = ({children}: Props) => {
-  // declare the GlobalState
-  const [globalState, setGlobalState] = useState<globalType>(initialState);
+
+  const [globalState, setGlobalState] = useState<globalType>(
+    !get("isDark") ? {isDark: get("isDark")} : initialState
+  );
 
   // create a function that'll make it easy to update one state property at a time
   const updateGlobalState = (key: string, newValue: any) => {
+    if (key === "isDark") ls("isDark", newValue);
     setGlobalState((oldState: any) => {
       if (oldState[key] !== newValue) {
         const newState = {...oldState};
