@@ -28,7 +28,6 @@ export const GlobalState = ({children}: Props) => {
 
   // create a function that'll make it easy to update one state property at a time
   const updateGlobalState = (key: string, newValue: any) => {
-    if (key === "isDark") ls("isDark", newValue);
     setGlobalState((oldState: any) => {
       if (oldState[key] !== newValue) {
         const newState = {...oldState};

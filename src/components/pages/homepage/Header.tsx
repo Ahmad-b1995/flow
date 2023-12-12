@@ -1,23 +1,32 @@
 import Logo from "../../../assets/images/logo";
-import {useGlobalState} from "../../../state/GlobalState";
 import Switch from "react-switch";
+import {useState} from "react";
 
-const Menu = () => {
-  const [globalState, updateGlobalState] = useGlobalState();
+interface Props {
+  onThemeToggle: () => void;
+}
 
+const Header = ({onThemeToggle}: Props) => {
+  const [isDarkModeActive, setisDarkModeActive] = useState(
+    document.querySelector("body")?.hasAttribute("data-theme") ? true : false
+  );
   return (
-    <header className={`
-        flex items-center justify-between max-w-7xl mx-auto bg-white h-20
-        ${globalState.isDark ? "bg-gray-900" : "bg-white"}
-        `}>
+    <header
+      className={`
+        flex items-center justify-between max-w-7xl mx-auto h-20
+        `}
+    >
       <Logo />
       <Switch
-      onColor="#0097a6"
-        onChange={() => updateGlobalState("isDark", !globalState.isDark)}
-        checked={globalState.isDark}
+        onColor="#0097a6"
+        onChange={() => {
+          onThemeToggle();
+          setisDarkModeActive(!isDarkModeActive);
+        }}
+        checked={isDarkModeActive}
       />
     </header>
   );
 };
 
-export default Menu;
+export default Header;

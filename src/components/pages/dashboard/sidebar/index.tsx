@@ -4,10 +4,13 @@ const menuItems = ["Projects"];
 
 export default function Sidebar() {
   const location = useLocation();
-  console.log(location.pathname.slice());
 
   return (
-    <div className="bg-gray-100 border-r-2 h-screen w-64 py-11 px-5">
+    <div
+      className={`
+      bg-gray-100 border-r-2 h-screen w-64 py-11 px-5
+      `}
+    >
       <ul>
         {menuItems.map((item) => (
           <li

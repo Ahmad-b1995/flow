@@ -26,6 +26,7 @@ export default function Router() {
       />
       <Route element={<PrivateRoutes />}>
         <Route path="/dashboard" element={<Dashboard />}>
+          <Route index element={<Navigate to="projects" />}></Route>
           <Route path="projects" element={<Projects />} />
           <Route path="projects/:id" element={<Board />} />
         </Route>

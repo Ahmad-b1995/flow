@@ -1,10 +1,9 @@
 import {Link} from "react-router-dom";
 import config from "../../../config/index.json";
-import {useGlobalState} from "../../../state/GlobalState";
+import Button from "../../common/Button";
 
 const MainHero = () => {
   const {mainHero} = config;
-  const [globalState, updateGlobalState] = useGlobalState();
 
   return (
     <main className="flex items-center justify-between w-full">
@@ -12,7 +11,6 @@ const MainHero = () => {
         <h1
           className={`
         text-2xl tracking-tight font-extrabold max-w-lg  sm:text-5xl md:text-4xl
-        ${globalState.isDark ? "text-gray-300" : "text-gray-900"}
         `}
         >
           project management made easy & open source
@@ -21,14 +19,8 @@ const MainHero = () => {
           {mainHero.description}
         </p>
         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-          <Link
-            className="shadow-md flex items-center justify-center px-8 py-3
-              border border-transparent text-base
-              font-medium rounded-md text-background bg-primary
-              hover:bg-border hover:text-primary md:py-4 md:text-lg md:px-10"
-            to="/signup"
-          >
-            Get started
+          <Link to="/signup">
+            <Button>Get started</Button>
           </Link>
         </div>
       </div>

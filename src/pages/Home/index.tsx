@@ -1,6 +1,5 @@
 // import {Link} from "react-router-dom";
 import MainHero from "../../components/pages/homepage/MainHero";
-import Header from "../../components/pages/homepage/Header";
 // import Canvas from "../../components/homepage/Canvas";
 // import LazyShow from "../../components/homepage/LazyShow";
 // import Product from "../../components/homepage/Product";
@@ -11,8 +10,7 @@ import Header from "../../components/pages/homepage/Header";
 export default function Home() {
   return (
     <div>
-      <Header />
-      <div className="w-full h-[calc(100vh-5rem)] overflow-hidden flex flex-col items-center justify-center">
+      <div className="w-full h-[calc(100vh-5rem)]  bg-background1/50 overflow-hidden flex flex-col items-center justify-center">
         <section className="max-w-7xl w-[80rem]">
           <MainHero />
         </section>
