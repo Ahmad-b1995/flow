@@ -10,7 +10,7 @@ import MainHero from "../../components/pages/homepage/MainHero";
 export default function Home() {
   return (
     <div>
-      <section className="mt-10 md:mt-20">
+      <section className="mt-10 md:mt-24">
         <MainHero />
       </section>
       {/* //

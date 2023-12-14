@@ -20,13 +20,13 @@ const MainHero = () => {
         <p className=" leading-8 max-w-xl text-gray-500 mt-9 text-xl lg:mx-0">
           {mainHero.description}
         </p>
-        <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+        <div className="mt-8 lg:mt-12">
           <Link to="/signup">
             <Button>Get started</Button>
           </Link>
         </div>
       </div>
-      <div className="flex items-end justify-end w-full">
+      <div className="flex items-center justify-start lg:justify-end w-full">
         <img
           className="object-cover w-full max-w-[25rem]"
           src={require("../../../assets/images/kanban.png")}

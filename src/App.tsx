@@ -15,7 +15,7 @@ export default function App() {
     ls("isDark", isDark);
   }
   return (
-    <main className="bg-background1 mx-auto">
+    <main className="bg-background1 mx-auto min-h-screen">
       <Header onThemeToggle={toggleTheme} />
       <div className="mx-auto max-w-7xl">
         <Router />
