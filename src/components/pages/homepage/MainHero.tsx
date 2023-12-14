@@ -1,17 +1,19 @@
 import {Link} from "react-router-dom";
 import config from "../../../config/index.json";
 import Button from "../../common/Button";
+import classes from "./homepage.module.scss";
+import classNames from "classnames";
 
 const MainHero = () => {
   const {mainHero} = config;
 
   return (
-    <main className="flex items-center justify-between w-full">
-      <div className="sm:text-center lg:text-left ">
+    <div className={classNames(classes.auto_grid)}>
+      <div>
         <h1
-          className={`
-        text-2xl tracking-tight font-extrabold max-w-lg  sm:text-5xl md:text-4xl
-        `}
+          className={classNames(
+            "text-2xl tracking-tight font-extrabold max-w-lg  sm:text-5xl md:text-4xl"
+          )}
         >
           project management made easy & open source
         </h1>
@@ -24,12 +26,14 @@ const MainHero = () => {
           </Link>
         </div>
       </div>
-      <img
-        className=" object-cover w-96"
-        src={require("../../../assets/images/kanban.png")}
-        alt="happy team"
-      />
-    </main>
+      <div className="flex items-end justify-end w-full">
+        <img
+          className="object-cover w-full max-w-[25rem]"
+          src={require("../../../assets/images/kanban.png")}
+          alt="happy team"
+        />
+      </div>
+    </div>
   );
 };
 

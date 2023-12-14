@@ -10,12 +10,10 @@ import MainHero from "../../components/pages/homepage/MainHero";
 export default function Home() {
   return (
     <div>
-      <div className="w-full h-[calc(100vh-5rem)]  bg-background1/50 overflow-hidden flex flex-col items-center justify-center">
-        <section className="max-w-7xl w-[80rem]">
-          <MainHero />
-        </section>
-      </div>
-      {/* //  <Canvas /> 
+      <section className="mt-10 md:mt-20">
+        <MainHero />
+      </section>
+      {/* //
 //  <LazyShow>
 //           <>
 //           <Product />

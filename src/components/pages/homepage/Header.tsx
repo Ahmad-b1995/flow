@@ -11,13 +11,11 @@ const Header = ({onThemeToggle}: Props) => {
     document.querySelector("body")?.hasAttribute("data-theme") ? true : false
   );
   return (
-    <header
-      className={`
-        flex items-center justify-between max-w-7xl mx-auto h-20
-        `}
-    >
+    <header className="flex mx-auto items-center justify-between max-w-7xl w-full h-16">
       <Logo />
       <Switch
+        width={50}
+        height={24}
         onColor="#0097a6"
         onChange={() => {
           onThemeToggle();

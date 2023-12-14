@@ -1,10 +1,10 @@
 import * as React from "react";
 const Logo = (props: any) => (
-  <div className="flex items-center justify-start gap-2">
+  <div className="flex items-center justify-center gap-2">
     <svg
       viewBox="0 0 500 388"
       xmlns="http://www.w3.org/2000/svg"
-      className="h-7"
+      className="h-5"
       {...props}
     >
       <path
@@ -13,7 +13,7 @@ const Logo = (props: any) => (
         fill="#0097a6"
       />
     </svg>
-    <h1 className="text-[1.7rem] font-bold text-[#2c5e74]">Flow</h1>
+    <div className="block text-[1.5rem] font-bold text-[#2c5e74]">Flow</div>
   </div>
 );
 export default Logo;

@@ -11,13 +11,13 @@
     --background3: 0deg, 0%, 83%;
   }
   @media (prefers-color-scheme: dark) {
-    :root {
-      --primary: 185deg, 100%, 33%;
-      --text: 0deg, 0%, 93%;
-      --background1: 240deg, 100%, 10%;
-      --background2: 240deg, 100%, 13%;
-      --background3: 240deg, 100%, 16%;
-    }
+    // :root {
+    //   --primary: 185deg, 100%, 33%;
+    //   --text: 0deg, 0%, 93%;
+    //   --background1: 240deg, 100%, 10%;
+    //   --background2: 240deg, 100%, 13%;
+    //   --background3: 240deg, 100%, 16%;
+    // }
   }
   [data-theme] {
     --primary: 185deg, 100%, 33%;
@@ -28,6 +28,43 @@
   }
 }
 
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", Helvetica, sans-serif, Arial;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.6;
   transition: all 0.5s ease-in-out;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+  font-weight: 900;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-bottom: 1em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+section,
+header {
+  padding-inline: 1rem;
 }
