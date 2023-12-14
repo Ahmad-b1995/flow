@@ -27,7 +27,7 @@ const Button: React.FC<ButtonProps> = ({
       className={` 
            shadow-md flex items-center justify-center px-8 py-3
            border border-transparent text-base
-           font-medium rounded-md text-background bg-primary
+           font-medium rounded-md text-text-primary_color_1 bg-background2
            hover:bg-border hover:text-primary md:py-4 md:text-lg md:px-10
            ${className}
            ${

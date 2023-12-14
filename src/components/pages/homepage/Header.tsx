@@ -1,14 +1,15 @@
 import Logo from "../../../assets/images/logo";
 import Switch from "react-switch";
 import {useState} from "react";
+import {get} from "local-storage";
 
 interface Props {
   onThemeToggle: () => void;
 }
 
 const Header = ({onThemeToggle}: Props) => {
-  const [isDarkModeActive, setisDarkModeActive] = useState(
-    document.querySelector("body")?.hasAttribute("data-theme") ? true : false
+  const [isDarkModeActive, setisDarkModeActive] = useState<boolean | null>(
+    get("isDark") as boolean
   );
   return (
     <header className="flex mx-auto items-center justify-between max-w-7xl w-full h-16">
@@ -21,7 +22,7 @@ const Header = ({onThemeToggle}: Props) => {
           onThemeToggle();
           setisDarkModeActive(!isDarkModeActive);
         }}
-        checked={isDarkModeActive}
+        checked={isDarkModeActive ? isDarkModeActive : false}
       />
     </header>
   );

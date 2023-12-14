@@ -5,9 +5,9 @@
 @layer base {
   :root {
     --primary: 185deg, 100%, 33%;
-    --text: 240deg, 100%, 10%;
+    --text-base-color: 240deg, 100%, 10%;
     --background1: 0deg, 0%, 100%;
-    --background2: 0deg, 0%, 93%;
+    --background2: 0deg, 0%, 96%;
     --background3: 0deg, 0%, 83%;
   }
   @media (prefers-color-scheme: dark) {
@@ -21,7 +21,9 @@
   }
   [data-theme] {
     --primary: 185deg, 100%, 33%;
-    --text: 0deg, 0%, 93%;
+    --text-base-color: 0deg, 0%, 50%;
+    --text-primary-color-1: 240deg, 100%, 50%;
+    --text-primary-color-2: 240deg, 100%, 60%;
     --background1: 240deg, 100%, 10%;
     --background2: 240deg, 100%, 13%;
     --background3: 240deg, 100%, 16%;
